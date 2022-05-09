@@ -2,9 +2,8 @@ function activate() {
   displayFeedback();
 
   // Call API with credentials here
-  new Promise((resolve) => {
-    setTimeout(() => resolve("abcd"), 1000);
-  })
+  fetch('/api/setup_auth')
+  .then(response => response.json())
   .then(displayQR)
   .catch(retrieveFailed);
 }
